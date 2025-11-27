@@ -7,6 +7,6 @@
 ---
 
 ### Check List Work
-- [ ] Lab 1
-- [ ] Workshop 1
+- [x] Lab 1
+- [x] Workshop 1
 - [ ] Lab 2
