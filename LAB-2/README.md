@@ -87,6 +87,7 @@ Smart Home IOT คือบ้านที่ใช้ระบบของ IOT 
 | **Artifact** | Mobile App → Cloud Service → IoT Device |
 | **Response** | สัญญาณถูกส่งไปยังอุปกรณ์และไฟติด |
 | **Response Measure** | เวลาในการตอบสนอง ≤ 2 วินาที |
+> ผู้ใช้กดปุ่ม “Turn On Light” บน Mobile App ระบบส่งคำสั่งผ่าน Cloud Service ไปยัง IoT Device และอุปกรณ์ต้องตอบสนองทันทีภายใน 2 วินาที
 
 ### QA-2: Scalability
 
@@ -100,6 +101,7 @@ Smart Home IOT คือบ้านที่ใช้ระบบของ IOT 
 | **Artifact** | Cloud Server, API Gateway |
 | **Response** | ระบบยังตอบสนองคำสั่งปกติ |
 | **Response Measure** | Response Time ≤ 3 วินาที |
+> เมื่อมีผู้ใช้ 1000 คนสั่งงานอุปกรณ์ในเวลาไล่เลี่ยกัน ระบบต้องยังตอบสนองได้ภายใน 3 วินาที โดยไม่เกิด error, timeout หรือ degraded performance
 
 ### QA-3: Availability
 
@@ -111,6 +113,7 @@ Smart Home IOT คือบ้านที่ใช้ระบบของ IOT 
 | **Artifact** | Server, API, Database |
 | **Response** | ระบบพร้อมให้บริการ |
 | **Response Measure** | Uptime ≥ 99.5% |
+> ผู้ใช้เปิดแอปเวลาใดก็ได้ ระบบต้องสามารถให้บริการปกติ โดยมี Uptime >= 99.5% ต่อเดือน
 
 ### QA-4: Security
 
@@ -122,6 +125,7 @@ Smart Home IOT คือบ้านที่ใช้ระบบของ IOT 
 | **Artifact** | Authentication Service |
 | **Response** | ตรวจสอบ Credential และปฏิเสธหากไม่ถูกต้อง |
 | **Response Measure** | หาก login ผิด ≥ 5 ครั้ง ระบบล็อกบัญชี |
+> ผู้ใช้ทำการ Login ผ่าน HTTPS ระบบตรวจสอบรหัสผ่าน หากกรอกผิดเกิน 5 ครั้ง บัญชีจะถูกล็อกชั่วคราวเพื่อป้องกัน brute force attack
 
 ### QA-5: Usability
 
@@ -133,6 +137,7 @@ Smart Home IOT คือบ้านที่ใช้ระบบของ IOT 
 | **Artifact** | UI, Setup Wizard |
 | **Response** | ระบบแนะนำทีละขั้นและพร้อมใช้งาน |
 | **Response Measure** | ผู้ใช้ตั้งค่าเสร็จภายใน ≤ 5 นาที |
+>เมื่อติดตั้งแอปครั้งแรก ผู้ใช้ใหม่สามารถทำขั้นตอนตั้งค่าอุปกรณ์ (pairing + config) จนใช้งานได้ภายใน 5 นาที ผ่านหน้าตา UI ที่เป็นมิตรและมีคำแนะนำทีละขั้นตอน
 
 ### QA-6: Maintainability
 
@@ -144,6 +149,7 @@ Smart Home IOT คือบ้านที่ใช้ระบบของ IOT 
 | **Artifact** | API, Device Registry, Firmware Manager |
 | **Response** | สามารถเชื่อมต่ออุปกรณ์ใหม่ได้โดยไม่แก้โค้ดหลัก |
 | **Response Measure** | Integration time ≤ 30 นาที |
+> Developer ต้องการเพิ่ม Smart Light รุ่นใหม่ของอีกแบรนด์หนึ่ง สามารถทำได้ด้วยการเพิ่ม Device Profile และ mapping commands เท่านั้น โดยใช้เวลาไม่เกิน 30 นาที โดยไม่ต้องแก้ core system
 
 ---
 
