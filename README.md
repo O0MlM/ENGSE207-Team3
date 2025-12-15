@@ -9,4 +9,4 @@
 ### Check List Work
 - [x] Lab 1
 - [x] Workshop 1
-- [ ] Lab 2
+- [x] Lab 2
